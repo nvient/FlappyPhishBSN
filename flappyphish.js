@@ -184,25 +184,28 @@ function drawObstacles() {
 }
 
 function updateObstacles() {
-if (gameRunning && frameCount % Math.max(60, Math.floor(240 / obstacleSpeed)) === 0) {
-  createObstacle();
-}
+  if (gameRunning && frameCount % Math.max(60, Math.floor(240 / obstacleSpeed)) === 0) {
+    createObstacle();
+  }
   
-obstacles.forEach((obstacle, index) => {
-  obstacle.x -= obstacleSpeed; // Move the obstacle to the left
+  obstacles.forEach((obstacle, index) => {
+    obstacle.x -= obstacleSpeed;
 
   // Check if the obstacle has been passed by the fish
-  if (!obstacle.cleared && obstacle.x + obstacle.width < fish.x) {
-    score++; // Increment score only when the obstacle is cleared
-    obstacle.cleared = true; // Mark the obstacle as cleared
-    console.log(`Score: ${score}`); // Debug log
-  }
-
+    if (!obstacle.cleared && obstacle.x + obstacle.width < fish.x) {
+      score++;
+      obstacle.cleared = true;
+      console.log(`Score: ${score}`);
+    }
+    
   // Remove the obstacle if it moves off-screen
-  if (obstacle.x + obstacle.width < 0) {
-    obstacles.splice(index, 1);
+   if (score > 0 && score % scoreThreshold === 0 && score !== lastSpeedIncreaseScore) {
+    obstacleSpeed += speedIncrement;
+    lastSpeedIncreaseScore = score; // Update the last score at which speed was increased
+    console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
   }
-});
+}
+
    if (score > 0 && score % scoreThreshold === 0) {
     obstacleSpeed += speedIncrement;
     console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
