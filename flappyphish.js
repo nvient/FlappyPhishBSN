@@ -18,8 +18,8 @@ let score = 0;
   let fish = { 
   x: 100, 
   y: 0, 
-  width: canvas.width * 0.05, // Dynamically scale width based on canvas size
-  height: canvas.height * 0.05, // Dynamically scale height based on canvas size
+  width: canvas.width * 0.03, // Dynamically scale width based on canvas size
+  height: canvas.height * 0.03, // Dynamically scale height based on canvas size
   velocity: 0
 };
 
