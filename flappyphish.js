@@ -185,8 +185,6 @@ function drawObstacles() {
 
 let lastSpeedIncreaseScore = 0; // Initialize last speed increment score
 
-let lastSpeedIncreaseScore = 0; // Initialize last speed increment score
-
 function updateObstacles() {
   // Create a new obstacle at intervals based on speed
   if (gameRunning && frameCount % Math.max(60, Math.floor(240 / obstacleSpeed)) === 0) {
