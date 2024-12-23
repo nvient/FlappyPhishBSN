@@ -183,23 +183,32 @@ function drawObstacles() {
   });
 }
 
+let lastSpeedIncreaseScore = 0; // Initialize last speed increment score
+
 function updateObstacles() {
+  // Create a new obstacle at intervals based on speed
   if (gameRunning && frameCount % Math.max(60, Math.floor(240 / obstacleSpeed)) === 0) {
     createObstacle();
   }
-  
+
   obstacles.forEach((obstacle, index) => {
     obstacle.x -= obstacleSpeed;
 
-  // Check if the obstacle has been passed by the fish
+    // Check if the obstacle has been passed by the fish
     if (!obstacle.cleared && obstacle.x + obstacle.width < fish.x) {
       score++;
       obstacle.cleared = true;
       console.log(`Score: ${score}`);
     }
-    
-  // Remove the obstacle if it moves off-screen
-   if (score > 0 && score % scoreThreshold === 0 && score !== lastSpeedIncreaseScore) {
+
+    // Remove the obstacle if it moves off-screen
+    if (obstacle.x + obstacle.width < 0) {
+      obstacles.splice(index, 1);
+    }
+  });
+
+  // Increment obstacle speed only once per threshold
+  if (score > 0 && score % scoreThreshold === 0 && score !== lastSpeedIncreaseScore) {
     obstacleSpeed += speedIncrement;
     lastSpeedIncreaseScore = score; // Update the last score at which speed was increased
     console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
