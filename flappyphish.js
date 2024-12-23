@@ -187,8 +187,6 @@ function updateObstacles() {
 if (gameRunning && frameCount % Math.max(60, Math.floor(240 / obstacleSpeed)) === 0) {
   createObstacle();
 }
-
-  }
   
 obstacles.forEach((obstacle, index) => {
   obstacle.x -= obstacleSpeed; // Move the obstacle to the left
@@ -209,7 +207,7 @@ obstacles.forEach((obstacle, index) => {
     obstacleSpeed += speedIncrement;
     console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
   }
-});
+}
 
 function drawScore() {
   ctx.font = "24px 'Lato'"; // Set font size and family
