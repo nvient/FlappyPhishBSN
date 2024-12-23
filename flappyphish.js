@@ -209,7 +209,8 @@ obstacles.forEach((obstacle, index) => {
     obstacleSpeed += speedIncrement;
     console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
   }
-}
+});
+
 function drawScore() {
   ctx.font = "24px 'Lato'"; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
