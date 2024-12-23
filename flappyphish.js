@@ -207,14 +207,6 @@ function updateObstacles() {
     }
   });
 
-  // Increment obstacle speed only once per threshold
-  if (score > 0 && score % scoreThreshold === 0 && score !== lastSpeedIncreaseScore) {
-    obstacleSpeed += speedIncrement;
-    lastSpeedIncreaseScore = score; // Update the last score at which speed was increased
-    console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
-  }
-}
-
    if (score > 0 && score % scoreThreshold === 0) {
     obstacleSpeed += speedIncrement;
     console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
