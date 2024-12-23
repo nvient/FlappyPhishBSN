@@ -5,7 +5,7 @@ const overlay = document.getElementById("overlay");
 
 console.log("Start button:", document.getElementById("startButton"));
   
-let gravity = 0.3;
+let gravity = 0.2;
 let frameCount = 0;
 let jumpHeight = 25;
 let gameRunning = false; // Initialize game as not running
@@ -13,7 +13,7 @@ let score = 0;
   let gameOver = false; 
   let obstacles = [];
   let obstacleSpeed = 2;
-  const speedIncrement = 0.1;
+  const speedIncrement = 0.2;
   const scoreThreshold = 5;  
   let fish = { 
   x: 100, 
