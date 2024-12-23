@@ -203,7 +203,7 @@ obstacles.forEach((obstacle, index) => {
     obstacles.splice(index, 1);
   }
 });
-  if (score > 0 && score % scoreThreshold === 0 && frameCount % 120 === 0) {
+   if (score > 0 && score % scoreThreshold === 0) {
     obstacleSpeed += speedIncrement;
     console.log(`Obstacle speed increased to: ${obstacleSpeed}`);
   }
