@@ -7,7 +7,7 @@ console.log("Start button:", document.getElementById("startButton"));
   
 let gravity = 0.2;
 let frameCount = 0;
-let jumpHeight = 50;
+let jumpHeight = 25;
 let gameRunning = false; // Initialize game as not running
 let score = 0;
   let gameOver = false; 
@@ -46,8 +46,8 @@ fishImg.src = "fish.png";
   
 function resizeCanvas() {
   const aspectRatio = 16 / 9;
-  const maxWidth = window.innerWidth * 0.9;
-  const maxHeight = window.innerHeight * 0.9; 
+  const maxWidth = window.innerWidth * 0.7;
+  const maxHeight = window.innerHeight * 0.7; 
   
   if (maxWidth / aspectRatio < maxHeight) {
     canvas.width = maxWidth;
