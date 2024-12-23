@@ -249,7 +249,9 @@ function animate() {
     fish.velocity += gravity;
     fish.y += fish.velocity; 
 
-    updateObstacles();
+   
+    drawForeground();
+ updateObstacles();
     drawObstacles();
     drawFish();
     drawScore();
@@ -258,8 +260,9 @@ function animate() {
       endGame();
       return; 
     }
-}
-    drawForeground();
+  } else {
+    drawForeground(); // Ensure foreground is still drawn if the game is not running
+  }
 
   if (!gameOver) {
     frameCount++; // Increment frame counter
