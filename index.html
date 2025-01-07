@@ -1,72 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthCareRebate.org</title>
-  <link rel="icon" href="CybersecurityAgencyFavicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Site Has Been Shut Down by The Agency</title>
+    <link rel="icon" href="CybersecurityAgencyFavicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <style>
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    background-color: #082f49;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center;    /* Vertically center */
-    height: 100vh;          /* Full viewport height */
-    background-color: #d8dbe2; /* Optional: dark background */
-    overflow: hidden;       /* Prevent scrollbars */
-  }
+    flex-direction: column; /* Stacks header above main */
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; /* Include padding in width/height */
+}
 
-  #gameCanvas {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #082f49;
+    box-sizing: border-box;
+}
+
+.header-text h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Adjusted max size */
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.header-text h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.header-image {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.header-text {
+    flex-grow: 1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+	padding: 20px 0;
+}
+	  
+section {
+	width: 100%;
+	margin: 60px 0;
+	transform: translateY(20px);
+        transition: all 1s ease-out;
+}
+section.animate {
+        opacity: 1;
+        transform: translateY(0);
+        }
+  
+.section-title {
+    font-size: 2rem;
+    color: #308c83;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+	text-align: center;
+}
+	  
+.game-instructions {
+    text-align: center;
+    color: #ffffff;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
     display: block;
-    border: 0px
-  }
+}
+
 #overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.8); /* Black transparent overlay */
-  color: white;
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  text-align: center;
-  z-index: 2;
-  pointer-events: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    z-index: 2;
+    pointer-events: auto;
 }
 
 #phishingFact {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
+
 #startButton {
-  pointer-events: auto; /* Allow interaction */
-  background-color: #308c83;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
+    pointer-events: auto;
+    background-color: #308c83;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
 }
+
+.statement-flex {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.statement-flex img {
+    max-width: 300px;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.statement-flex p {
+    margin: 0; /* Remove default paragraph margins */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.tips-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px 20px;
+    text-align: center;
+}
+	  
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+	  
+.card {
+    background-color: #308c83;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.card-icon {
+    font-size: 40px;
+    color: #ffffff; /* Updated to white for consistency */
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-image {
+        max-width: 100px;
+        max-height: 100px;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .tips-section {
+        grid-template-columns: 1fr; /* Stack tips for smaller screens */
+    }
+    .statement-flex p,
+    .card-text {
+        text-align: center; 
+    }
+    section {
+        margin: 30px 0; /* Smaller gaps for smaller screens */
+    }
+    .game-container {
+        max-width: 90%; /* Shrink the width for small screens */
+    }
+    }
   </style>
 </head>
 <body>
-  <div id="overlay">
-    <p id="phishingFact"></p>
-    <button id="startButton">Start Game</button>
+    <div class="container">
+    <header class="header">
+        <img src="CybersecurityAgency.png" alt="Cybersecurity Agency" class="header-image">
+        <div class="header-text">
+        <h1>This Site Has Been Shut Down by <span style="color: #308c83;">The Agency</span></h1>
+        <h2>You followed a suspicious link and could have put your data in the hands of scammers!</h2>
+        <h2>Test your skills with a game of <em>Flappy Phish</em>, then read the important statement from Agent Coyle and explore the tips below to avoid your data falling into the wrong hands.</h2>
+        </div>     
+    </header>
+    <main>
+	    <section> 
+	<h2 class="section-title">Flappy Phish</h2>
+<div class="game-instructions">
+    <p>Press the space bar to avoid the obstacles!</p>
 </div>
-<canvas id="gameCanvas"></canvas>
-  <script src="flappyphish.js"></script>
+        <div class="game-container">
+    <div id="overlay">
+        <p id="phishingFact"></p>
+        <button id="startButton">Start Game</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+</div>
+</section>
+        <section class="statement-section">
+                <h2 class="section-title">Public Statement from Agent Josh Coyle</h2>
+		<div class="statement-flex">
+                    <img src="Agent-Coyle.png" alt="Agent Coyle">
+            <p>Ladies and gentlemen, I am here today to address a difficult situation that has been keeping me up at night. It occurred during my recent undercover mission. As part of a covert operation to infiltrate a scam center, I published a fraudulent website designed by one of the scammers. Unfortunately, this meant their fraudulent site went live temporarily, targeting unsuspecting victims.
+                <br>
+                <br>
+I deeply regret the confusion and inconvenience this caused and want to assure the public that this situation has been handled. While my mission was ultimately successful—leading to the takedown of the entire operation—it doesn’t change the fact that innocent people may have lost money due to this incident. I’ve learned a tough lesson about the complexities of balancing operational secrecy with unintended consequences, and I’ll be working closely with my supervisors to improve decision-making in these high-pressure scenarios. To anyone who visited healthcarerebate.com, I’m sorry. And to the cybercriminal who forced me to hit “Publish”—let’s just say, justice was served, and I’m pretty sure her internet privileges are permanently revoked.
+            </p>
+        </div>
+        </section>
+	    <section class="tips-section">
+		    <h2 class="section-title">Quick Tips</h2>
+        <div class="tips-grid">
+	    <div class="card">
+            <div class="card-icon">🖱️</div>
+            <div class="card-title">Think Before You Click</div>
+            <div class="card-text">
+                Think before clicking on links in messages. Verify the sender and go to the website directly if you know it.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔍</div>
+            <div class="card-title">Confirm URLs From Search</div>
+            <div class="card-text">
+                Before clicking a site from a search engine, run it through a safety checker like Norton’s Safe Web feature.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">⌨️</div>
+            <div class="card-title">Type Carefully</div>
+            <div class="card-text">
+                If you are typing a URL from scratch, review your typing before clicking “enter.” One letter off could lead you to a scammer’s spoofed website.
+            </div>
+        </div>
+	</div>
+    </section>
+    </main>
+    </div>
+    <script src="flappyphish.js"></script>
+	<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                    }
+                });
+            });
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
