@@ -304,21 +304,29 @@ I deeply regret the confusion and inconvenience this caused and want to assure t
     </div>
     <script src="flappyphish.js"></script>
 	<script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll("section");
+    document.addEventListener("DOMContentLoaded", () => {
+        // Select all sections
+        const sections = document.querySelectorAll("section");
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("animate");
-                    }
-                });
-            });
+        // Exclude the game-section from animation
+        const sectionsToAnimate = [...sections].filter(
+            (section) => !section.classList.contains("game-section")
+        );
 
-            sections.forEach((section) => {
-                observer.observe(section);
+        // Create an IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                }
             });
         });
-    </script>
+
+        // Observe only sectionsToAnimate
+        sectionsToAnimate.forEach((section) => {
+            observer.observe(section);
+        });
+    });
+</script>
 </body>
 </html>
